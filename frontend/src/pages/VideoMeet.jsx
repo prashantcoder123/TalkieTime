@@ -454,7 +454,7 @@ socketRef.current.on("chat-message", (msg) => {
     if (socketRef.current) socketRef.current.emit("chat-message", newMsg);
 
     // Add to local messages so sender sees it instantly
-    setMessages((prev) => [...prev, newMsg]);
+    //setMessages((prev) => [...prev, newMsg]);
 
     setMessage("");
   };
