@@ -221,17 +221,14 @@ export default function VideoMeetComponent() {
     //   });// 🧩 around line 280–285
 // 🧩 around line 280–285
 socketRef.current.on("chat-message", (msg) => {
-  try {
-    if (msg && msg.data && msg.data.sender && msg.data.data) {
-      const { sender, data } = msg.data;
-      setMessages((m) => [...m, { sender, data }]);
-    } else {
-      console.warn("Invalid message format:", msg);
+  if (msg && msg.sender && msg.data) {
+    setMessages((prev) => [...prev, { sender: msg.sender, data: msg.data }]);
+    if (msg.sender !== username) {
+      setNewMessages((prev) => prev + 1);
     }
-  } catch (err) {
-    console.error("Error parsing chat-message:", err, msg);
   }
 });
+
 
 
 
@@ -457,7 +454,7 @@ socketRef.current.on("chat-message", (msg) => {
     if (socketRef.current) socketRef.current.emit("chat-message", newMsg);
 
     // Add to local messages so sender sees it instantly
-    // setMessages((prev) => [...prev, newMsg]);
+    setMessages((prev) => [...prev, newMsg]);
 
     setMessage("");
   };
