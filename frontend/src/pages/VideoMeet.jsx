@@ -435,13 +435,13 @@ socketRef.current.on("chat-message", (msg) => {
   let handleScreen = () => {
     setScreen(!screen);
   };
-
+let routeTo = useNavigate();
   let handleEndCall = () => {
     try {
       let tracks = localVideoRef.current.srcObject.getTracks();
       tracks.forEach((track) => track.stop());
     } catch (e) {}
-    // window.location.href = "/home";
+     //window.location.href = "https://your-app.onrender.com/home";
      routeTo("/home")
   };
 
@@ -472,7 +472,7 @@ socketRef.current.on("chat-message", (msg) => {
       socketRef.current = io(server_url);
     }
   };
-  let routeTo = useNavigate();
+  //let routeTo = useNavigate();
 
   /* ---------------- RENDER ---------------- */
   return (
