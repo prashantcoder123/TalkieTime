@@ -20,7 +20,7 @@ function HomeComponent() {
     <>
       <div className="navBar">
         <div style={{ display: "flex", alignItems: "center" }}>
-          <h2>Apna Video Call</h2>
+          <h2>TalkieTime</h2>
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>
           <IconButton
