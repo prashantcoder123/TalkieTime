@@ -441,8 +441,8 @@ socketRef.current.on("chat-message", (msg) => {
       let tracks = localVideoRef.current.srcObject.getTracks();
       tracks.forEach((track) => track.stop());
     } catch (e) {}
-    window.location.href = "/home";
-    //  routeTo()
+    // window.location.href = "/home";
+     routeTo("/home")
   };
 
   const sendMessage = () => {
